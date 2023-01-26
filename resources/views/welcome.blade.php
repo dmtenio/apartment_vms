@@ -25,7 +25,18 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+
+                        {{-- 
+                        1=Admin
+                        0=User
+                        --}}
+
+                        @if (Auth::user()->role_as=='1')
+                            <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Admin Dashboard</a>                    
+                        @elseif (Auth::user()->role_as=='0')
+                            <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">User Dashboard</a>                    
+                        @endif
+
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -33,6 +44,7 @@
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif
                     @endauth
+                    
                 </div>
             @endif
 

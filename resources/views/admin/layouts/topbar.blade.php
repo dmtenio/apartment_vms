@@ -47,7 +47,8 @@
          {{-- <img src="{{  Auth::user()->avatar ?? asset('vendors/dist/img/unnamed.png')}}" class="img-fluid rounded-circle" style="width: 30px;"> --}}
          {{-- <span>{{ Auth::user()->name }}</span> --}}
          <img src="{{ asset('vendors/dist/img/avatar5.png') }}" class="img-fluid rounded-circle" style="width: 30px;">
-         <span>Dalimark Tenio</span>
+         {{-- <span>Dalimark Tenio</span> --}}
+         <span>{{ Auth::user()->name }}</span>
         </a>
 
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -63,21 +64,23 @@
           </a>
         <div class="dropdown-divider"></div>
        
-          <a class="dropdown-item" href="">
+          {{-- <a class="dropdown-item" href="">
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             Logout
           </a>
-        
-        {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+         --}}
+
+        <a class="dropdown-item" href="{{ route('logout') }}"
         onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
          {{ __('Logout') }}
      </a>
+     
 
      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
          @csrf
-     </form> --}}
+     </form>
     </div>
 
       </li>

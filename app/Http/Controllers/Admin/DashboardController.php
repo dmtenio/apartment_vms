@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Apartment;
 use App\Models\Visitor;
+use App\Models\Apartment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
